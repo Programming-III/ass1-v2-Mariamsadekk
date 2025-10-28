@@ -29,7 +29,7 @@ Student::Student() : Person(), yearLevel(0), major("") {}
 Student::Student(const string& name, int id, int yearLevel, const string& major)
     : Person(name, id), yearLevel(yearLevel), major(major) {}
 Student::~Student() {}
-
+//USING YEAR LEVEL
 void Student::setYearLevel(int y) { yearLevel = y; }
 int Student::getYearLevel() const { return yearLevel; }
 
