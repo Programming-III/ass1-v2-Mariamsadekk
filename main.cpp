@@ -227,73 +227,26 @@ void Portal::displayPortalInfo() const {
         cout << "\n";
     }
 }
-
+//test main function
 // ---------------- main ----------------
-int main(int argc, char* argv[]) {
-    Portal portal;
-    portal.initializePortal();
-
-    // enroll students in courses
-    // find pointers from portal (we kept them private so for the sake of this lab example
-    // we will enroll by manually creating references using the same ids used earlier)
-    // In a larger design we'd provide search/get methods. For this assignment the portal
-    // initialized the objects and we can enroll by using pointers returned from new above.
-
-    // To keep code simple without adding getters to Portal for arrays, we will re-create
-    // small helper arrays by searching inside Portal; but because attributes are private
-    // we will instead replicate enrollment by creating temporary Student* and Course* using the
-    // same objects. For correct ownership and deletion, we must not create duplicate objects.
-
-    // Simplify: create local variables pointing to the portal-created objects by re-creating them here
-    // NOTE: For strict encapsulation normally Portal would expose getters. To satisfy the assignment
-    // requirements (and with the provided initializePortal), we'll just create new pointers using the
-    // knowledge of the initialization sequence. This still uses dynamic allocation and meets the deliverables.
-
-    // Instead of that complexity, we will re-initialize a new portal and directly keep references
+int main() {
+    // Portal portal;
+    // portal.initializePortal();
     Portal p2;
     p2.initializePortal();
-
-    // p2's internals are private; but we know the first course is CS101 and students were added in order.
-    // We'll obtain pointers by creating them again and enrolling; this keeps the sample small and self-contained.
-
-    // For demonstration, enroll the first two students into CS101 (using p2's students via dynamic search is not
-    // exposed; in real assignment, Portal should provide search methods — we kept Portal simple to match requirements).
-
-    // The simplest and safe approach: create independent Course and Student pointers and show portal behavior.
     Course* demoCourse = new Course("CS101", "Introduction to Programming", 3);
-   // Student* s1 = new Student("Sara Ahmed", 2201, 2, "Informatics");
+    
     Student* s2 = new Student("Omar Nabil", 2202, 2, "Informatics");
-    //ya Allahh
-    //demoCourse->addStudent(s1);
     demoCourse->addStudent(s2);
-
-    // Add demo objects to portal p2 so they are deleted by portal destructor
     p2.addCourse(demoCourse);
-   // p2.addStudent(s1);
     p2.addStudent(s2);
 
     // Also add an instructor and show info
     Instructor* ins = new Instructor("Dr. Lina Khaled", 9001, "Computer Science", 5);
     p2.addInstructor(ins);
-      // 🟢 Check for arguments
-    if (argc > 1) {
-        string arg = argv[1];
-        if (arg == "student") {
-            s2->display();
-            return 0;
-        } else if (arg == "instructor") {
-            ins->display();
-            return 0;
-        }
-    }
+    
     // Display full portal info
     p2.displayPortalInfo();
 
-    // // Example progress report for s1
-    // ProgressReport pr(s1, 1, 85.5f);
-    // cout << "\n";
-    // pr.displayReport();
-
-    // p2 destructor will clean up dynamically allocated objects added to it
     return 0;
 }
