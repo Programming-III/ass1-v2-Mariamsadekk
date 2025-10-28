@@ -67,7 +67,7 @@ jobs:
       with:
         test-name: Student Display
         setup-command: g++ main.cpp -o main
-        command: "./main"
+        command: "./main student"
         input: ''
         expected-output: 'Name: Omar Nabil\nID: 2202\nYear: 2\nMajor: Informatics'
         comparison-method: contains
@@ -79,7 +79,7 @@ jobs:
       with:
         test-name: Instructor Display
         setup-command: g++ main.cpp -o main
-        command: "./main"
+        command: "./main instructor"
         input: ''
         expected-output: 'Name: Dr. Lina Khaled\nID: 9001\nDepartment: Computer Science\nExperience:
           5 years'
