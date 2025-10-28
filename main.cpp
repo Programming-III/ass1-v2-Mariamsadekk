@@ -5,9 +5,8 @@
 #include "Instructor.h"
 #include "Course.h"
 #include "Portal.h"
-//#include "blabla.h"
-using namespace std;
 
+using namespace std;
 // ---------------- Person.cpp-like definitions ----------------
 Person::Person() : name(""), id(0) {}
 Person::Person(const string& name, int id) : name(name), id(id) {}
@@ -23,8 +22,7 @@ void Person::display() const {
     cout << "Name: " << name << "\n";
     cout << "ID: " << id << "\n";
 }
-//bla blaaa
-//all info displayed
+//student source file here
 
 // ---------------- Student.cpp-like definitions ----------------
 Student::Student() : Person(), yearLevel(0), major("") {}
