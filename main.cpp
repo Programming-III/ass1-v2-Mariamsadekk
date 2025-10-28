@@ -24,6 +24,7 @@ void Person::display() const {
     cout << "ID: " << id << "\n";
 }
 //bla blaaa
+//all info displayed
 
 // ---------------- Student.cpp-like definitions ----------------
 Student::Student() : Person(), yearLevel(0), major("") {}
