@@ -69,7 +69,8 @@ jobs:
         setup-command: g++ main.cpp -o main
         command: "./main student"
         input: ''
-        expected-output: 'Name: Omar Nabil\nID: 2202\nYear: 2\nMajor: Informatics'
+        expected-output: 'Student Info:\nName: Omar Nabil\nID: 2202\nYear: 2\nMajor:
+          Informatics'
         comparison-method: contains
         timeout: 10
         max-score: 5
@@ -79,10 +80,10 @@ jobs:
       with:
         test-name: Instructor Display
         setup-command: g++ main.cpp -o main
-        command: "./main instructor"
+        command: "./main "
         input: ''
-        expected-output: 'Name: Dr. Lina Khaled\nID: 9001\nDepartment: Computer Science\nExperience:
-          5 years'
+        expected-output: 'Instructor Info: \nName: Dr. Lina Khaled \nID: 9001 \nDepartment:
+          Computer Science\nExperience: 5 years'
         comparison-method: contains
         timeout: 10
         max-score: 5
