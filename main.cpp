@@ -229,7 +229,7 @@ void Portal::displayPortalInfo() const {
 }
 
 // ---------------- main ----------------
-int main() {
+int main(int argc, char* argv[]) {
     Portal portal;
     portal.initializePortal();
 
@@ -275,7 +275,17 @@ int main() {
     // Also add an instructor and show info
     Instructor* ins = new Instructor("Dr. Lina Khaled", 9001, "Computer Science", 5);
     p2.addInstructor(ins);
-
+      // 🟢 Check for arguments
+    if (argc > 1) {
+        string arg = argv[1];
+        if (arg == "student") {
+            s2->display();
+            return 0;
+        } else if (arg == "instructor") {
+            ins->display();
+            return 0;
+        }
+    }
     // Display full portal info
     p2.displayPortalInfo();
 
