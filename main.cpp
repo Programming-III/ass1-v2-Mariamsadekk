@@ -42,7 +42,7 @@ void Student::display() const {
     cout << "Year: " << yearLevel << "\n";
     cout << "Major: " << major << "\n";
 }
-
+//yarab tezbot
 // ---------------- Instructor.cpp-like definitions ----------------
 Instructor::Instructor() : Person(), department(""), experienceYears(0) {}
 Instructor::Instructor(const string& name, int id, const string& department, int experienceYears)
