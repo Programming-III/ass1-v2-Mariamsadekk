@@ -51,8 +51,9 @@ jobs:
         test-name: Constructor Declaration
         setup-command: ''
         command: found=0; for class in Person Student Instructor Course; do if grep
-          -E "$class\([^)]+\);" *.h 2>/dev/null; then found=$((found+1)); fi; done;
-          if [ "$found" -eq 4 ]; then echo "5.00"; else echo "0.00"; fi
+          -RqE "^[[:space:]]*$class[[:space:]]*\([^;]*\)[[:space:]]*;" -- *.h 2>/dev/null;
+          then found=$((found+1)); fi; done; if [ "$found" -eq 4 ]; then echo "5.00";
+          else echo "0.00"; fi
         timeout: 10
         max-score: 5
     - name: Destructor Declaration
