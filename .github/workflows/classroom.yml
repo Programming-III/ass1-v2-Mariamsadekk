@@ -49,7 +49,7 @@ jobs:
       uses: classroom-resources/autograding-command-grader@v1
       with:
         test-name: Constructor Declaration
-        setup-command: ''
+        setup-command: g++ -std=c++11 -o main main.cpp
         command: found=0; for class in Person Student Instructor Course; do [ -f "${class}.h"
           ] && [ -s "${class}.h" ] && grep -q "${class}(" "${class}.h" && found=$((found+1));
           done; [ "$found" -eq 4 ] && echo "5.00" || echo "0.00"
