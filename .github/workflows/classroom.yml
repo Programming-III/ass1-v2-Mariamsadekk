@@ -53,9 +53,9 @@ jobs:
         command: headers=$(ls *.h 2>/dev/null | wc -l); if [ "$headers" -eq 0 ]; then
           echo "0.00"; exit 0; fi; for file in Person.h Student.h Instructor.h Course.h;
           do [ ! -f "$file" ] && echo "0.00" && exit 0; done; found=0; for class in
-          Person Student Instructor Course; do grep -qE "[[:space:]]*${class}[[:space:]]*\([^)]*\)[[:space:]]*;"
-          "${class}.h" 2>/dev/null && found=$((found+1)); done; [ "$found" -eq 4 ]
-          && echo "5.00" || echo "0.00"
+          Person Student Instructor Course; do if grep -qE "^[[:space:]]*${class}[[:space:]]*\([^)]*\)[[:space:]]*;[[:space:]]*$"
+          "${class}.h" 2>/dev/null; then found=$((found+1)); fi; done; [ "$found"
+          -eq 4 ] && echo "5.00" || echo "0.00"
         timeout: 10
         max-score: 5
     - name: Destructor Declaration
