@@ -6,7 +6,7 @@
 #include "Student.h"
 #include "Person.h"
 #include <string>
-
+//
 class Course {
 private:
     string courseCode;
