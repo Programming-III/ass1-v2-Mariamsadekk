@@ -51,9 +51,11 @@ jobs:
         test-name: Constructor Declaration
         setup-command: ''
         command: headers=$(ls *.h 2>/dev/null | wc -l); if [ "$headers" -eq 0 ]; then
-          echo "0.00"; else found=0; for class in Person Student Instructor Course;
-          do grep -E "$class\([^)]+\);" *.h >/dev/null 2>&1 && found=$((found+1));
-          done; if [ "$found" -eq 4 ]; then echo "5.00"; else echo "0.00"; fi; fi
+          echo "0.00"; exit 0; fi; for file in Person.h Student.h Instructor.h Course.h;
+          do [ ! -f "$file" ] && echo "0.00" && exit 0; done; found=0; for class in
+          Person Student Instructor Course; do grep -qE "[[:space:]]*${class}[[:space:]]*\([^)]*\)[[:space:]]*;"
+          "${class}.h" 2>/dev/null && found=$((found+1)); done; [ "$found" -eq 4 ]
+          && echo "5.00" || echo "0.00"
         timeout: 10
         max-score: 5
     - name: Destructor Declaration
