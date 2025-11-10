@@ -60,7 +60,7 @@ jobs:
       uses: classroom-resources/autograding-command-grader@v1
       with:
         test-name: Destructor Declaration
-        setup-command: ''
+        setup-command: g++ -std=c++11 -o main main.cpp
         command: 'grep -c ''~'' *.h | awk -F: ''{sum += $2} END {if(sum >= 7) print
           "PASS"; else print "FAIL"}'''
         timeout: 10
